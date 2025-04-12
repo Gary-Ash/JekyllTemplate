@@ -1,0 +1,71 @@
+---
+layout: blog-post
+---
+{% assign haveBlogPost = 0 %}
+{% assign haveProductPost = 0 %}
+
+{% for collection in site.collections %}
+    {% if collection.label == 'blog' %}
+   		{% for item in site[collection.label] %}
+	    	{% assign haveBlogPost =  1 %}
+	    	{% break %}
+    	{% endfor %}
+    {% endif %}
+
+    {% if collection.label == 'product' %}
+		{% for item in site[collection.label] %}
+		    {% assign haveProductPost = 1 %}
+   	    	{% break %}
+		{% endfor %}
+   {% endif %}
+{% endfor %}
+
+{% if haveBlogPost == 0 and haveProductPost == 0 %}
+	<meta http-equiv="refresh" content="7; url='/about/index.html'" />
+{% endif %}
+
+
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+	{% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+	{% include common.html %}
+	{% include header.html %}
+
+	<body>
+		<article id="theArticle">
+			{% for post in paginator.posts %}
+				<div>
+					<div style="color: #d33682;text-align: center;font-size: 150%">
+						<strong>{{ post.title }}</strong>
+						<div style="line-height: 0.5;text-align: center;color: #657b83;font-size: 70%">
+							{{ post.date | date: '%B %d, %Y' }}
+						</div>
+						<hr>
+					</div>
+				</div>
+				<dev id="post-content" class="scrollable">
+					{{ post.content }}
+				</dev>
+				{% if paginator.total_pages > 1 %}
+					<div id="pagination-area">
+						<hr>
+							<div class="pagination">
+							  {% if paginator.previous_page %}
+								<a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev    </a>
+							  {% else %}
+								<span>&laquo; Prev    </span>
+							  {% endif %}
+
+							  {% if paginator.next_page %}
+								<a href="{{ paginator.next_page_path | relative_url }}">Next: {{ paginator.posts[paginator.next_page] }} &raquo;</a>
+							  {% else %}
+								<span>  Next &raquo;</span>
+							  {% endif %}
+							</div>
+					{% endif %}
+			{% endfor %}
+		</article>
+		{% include footer.html %}
+		<script src="/scripts/calc-height.js"></script>
+	</body>
+</html>

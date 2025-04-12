@@ -1,0 +1,19 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+	{% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+	
+	{% include common.html %}
+	{% include header.html %}
+	
+	<body>
+		<article id="theArticle">
+			{{ content }}
+		</article>
+
+		{% include footer.html %}
+		<script src="/scripts/calc-height.js"></script>
+	</body>
+</html>
