@@ -1,0 +1,84 @@
+<nav>
+	<div class="topnav" id="myTopnav">
+		<div class="nav-left">
+			<a href="/index.html" aria-label="Home">
+				<span class="tooltip">
+					<i class="fas fa-home"></i>
+					<span class="tooltiptext">Home</span>
+				</span>
+			</a>
+
+			<a href="/blog/index.html" aria-label="Blog">
+				<span class="tooltip">
+					<i class="fas fa-blog"></i>
+					<span class="tooltiptext">Blog</span>
+				</span>
+			</a>
+
+			<a href="/about/index.html" aria-label="About">
+				<span class="tooltip">
+					<i class="fas fa-address-card"></i>
+					<span class="tooltiptext">About site/About me</span>
+				</span>
+			</a>
+
+			<a href="/search.html" aria-label="Search">
+				<span class="tooltip">
+					<i class="fa-solid fa-magnifying-glass"></i>
+					<span class="tooltiptext">Search</span>
+				</span>
+			</a>
+
+			<a href="{{page.url}}" id="theme-toggle" onclick="modeSwitcher()" aria-label="Toggle theme">
+				<span class="tooltip">
+					<i class="fa-regular fa-lightbulb"></i>
+					<span class="tooltiptext">Toggle Light/Dark mode</span>
+				</span>
+			</a>
+		</div>
+
+		<div class="nav-right">
+			<a href="https://iosdev.space/%40{{site.mastodon_username}}" aria-label="Mastodon">
+				<span class="tooltip">
+					<i class="fa-brands fa-mastodon"></i>
+					<span class="tooltiptext">My Mastodon Account</span>
+				</span>
+			</a>
+
+			<a href="https://bsky.app/profile/{{site.blueskyaccount}}" aria-label="Bluesky">
+				<span class="tooltip">
+					<i class="fa-brands fa-bluesky"></i>
+					<span class="tooltiptext">My Bluesky Account</span>
+				</span>
+			</a>
+
+			<a href="https://www.twitter.com/{{site.twitter_username}}" aria-label="X/Twitter">
+				<span class="tooltip">
+					<i class="fa-brands fa-x-twitter"></i>
+					<span class="tooltiptext">My X Account</span>
+				</span>
+			</a>
+
+			<a href="https://github.com/{{site.github_username}}" aria-label="GitHub">
+				<span class="tooltip">
+					<i class="fab fa-github"></i>
+					<span class="tooltiptext">My GitHub</span>
+				</span>
+			</a>
+
+			<a href="mailto:{{site.email}}" aria-label="Email">
+				<span class="tooltip">
+					<i class="fas fa-envelope"></i>
+					<span class="tooltiptext">E-mail me</span>
+				</span>
+			</a>
+
+			<a href="http://www.geedbla.com/feed.xml" aria-label="RSS Feed">
+				<span class="tooltip">
+					<i>RSS</i>
+					<span class="tooltiptext">RSS Feed</span>
+				</span>
+			</a>
+		</div>
+	</div>
+</nav>

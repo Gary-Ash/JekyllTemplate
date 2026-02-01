@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+	{% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+
+	{% include common.html %}
+
+	<body>
+		{% include header.html %}
+		<article id="theArticle">
+			{{ content }}
+		</article>
+		{% include footer.html %}
+	</body>
+</html>
