@@ -29,7 +29,7 @@
 				</span>
 			</a>
 
-			<a href="{{page.url}}" id="theme-toggle" onclick="modeSwitcher()" aria-label="Toggle theme">
+			<a href="javascript:void(0)" id="theme-toggle" onclick="modeSwitcher()" aria-label="Toggle theme">
 				<span class="tooltip">
 					<i class="fa-regular fa-lightbulb"></i>
 					<span class="tooltiptext">Toggle Light/Dark mode</span>
@@ -38,14 +38,14 @@
 		</div>
 
 		<div class="nav-right">
-			<a href="https://iosdev.space/%40{{site.mastodon_username}}" aria-label="Mastodon">
+			<a href="{{site.mastodon_account}}" aria-label="Mastodon">
 				<span class="tooltip">
 					<i class="fa-brands fa-mastodon"></i>
 					<span class="tooltiptext">My Mastodon Account</span>
 				</span>
 			</a>
 
-			<a href="https://bsky.app/profile/{{site.blueskyaccount}}" aria-label="Bluesky">
+			<a href="https://bsky.app/profile/{{site.bluesky_account}}" aria-label="Bluesky">
 				<span class="tooltip">
 					<i class="fa-brands fa-bluesky"></i>
 					<span class="tooltiptext">My Bluesky Account</span>
@@ -73,9 +73,9 @@
 				</span>
 			</a>
 
-			<a href="http://www.geedbla.com/feed.xml" aria-label="RSS Feed">
+			<a href="{{site.url}}/feed.xml" aria-label="RSS Feed">
 				<span class="tooltip">
-					<i>RSS</i>
+					<i class="fa-solid fa-rss"></i>
 					<span class="tooltiptext">RSS Feed</span>
 				</span>
 			</a>

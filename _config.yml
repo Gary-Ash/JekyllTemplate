@@ -56,7 +56,7 @@ defaults:
   -
     scope:
       path: "_products"
-      type: "posts"
+      type: "products"
     values:
       layout: "blog-post"
       category: product
@@ -65,7 +65,7 @@ collections:
   blog:
     output: false
 
-  product:
+  products:
     output: false
 
 pagination:

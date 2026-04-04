@@ -1,5 +1,4 @@
 ---
-layout: blog-post
 ---
 {% assign haveBlogPost = 0 %}
 {% assign haveProductPost = 0 %}
@@ -12,7 +11,7 @@ layout: blog-post
     	{% endfor %}
     {% endif %}
 
-    {% if collection.label == 'product' %}
+    {% if collection.label == 'products' %}
 		{% for item in site[collection.label] %}
 		    {% assign haveProductPost = 1 %}
    	    	{% break %}

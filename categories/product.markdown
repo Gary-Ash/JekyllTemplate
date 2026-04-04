@@ -4,6 +4,6 @@ permalink: /product/
 pagination:
   permalink: "index-:num.html"
   enabled: true
-  collection: product
+  collection: products
   per_page: 1
 ---
