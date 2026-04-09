@@ -3,30 +3,47 @@
 {% assign haveBlogPost = 0 %}
 {% assign haveProductPost = 0 %}
 
-{% for collection in site.collections %}
-    {% if collection.label == 'blog' %}
-   		{% for item in site[collection.label] %}
-	    	{% assign haveBlogPost =  1 %}
-	    	{% break %}
-    	{% endfor %}
-    {% endif %}
-
-    {% if collection.label == 'products' %}
-		{% for item in site[collection.label] %}
-		    {% assign haveProductPost = 1 %}
-   	    	{% break %}
-		{% endfor %}
-   {% endif %}
+{% for item in site.blog %}
+	{% assign haveBlogPost = 1 %}
+	{% break %}
 {% endfor %}
 
-{% if haveBlogPost == 0 and haveProductPost == 0 %}
-	<meta http-equiv="refresh" content="7; url='/about/index.html'" />
+{% for item in site.products %}
+	{% assign haveProductPost = 1 %}
+	{% break %}
+{% endfor %}
+
+{% assign is_blog_page = 0 %}
+{% assign is_product_page = 0 %}
+
+{% if page.url == '/blog/' or page.url == '/blog/index.html' or page.pagination.collection == 'blog' %}
+	{% assign is_blog_page = 1 %}
+{% elsif page.url == '/' or page.url == '/index.html' or page.url == '/product/' or page.url == '/product/index.html' or page.pagination.collection == 'products' %}
+	{% assign is_product_page = 1 %}
 {% endif %}
 
+{% assign redirect_url = nil %}
+
+{% if is_product_page == 1 and haveProductPost == 0 %}
+	{% if haveBlogPost == 1 %}
+		{% assign redirect_url = '/blog/' %}
+	{% else %}
+		{% assign redirect_url = '/about/' %}
+	{% endif %}
+{% elsif is_blog_page == 1 and haveBlogPost == 0 %}
+	{% if haveProductPost == 1 %}
+		{% assign redirect_url = '/product/' %}
+	{% else %}
+		{% assign redirect_url = '/about/' %}
+	{% endif %}
+{% endif %}
 
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 	{% capture url_path %}{{site.url}}{{page.url}}{% endcapture %}
+	{% if redirect_url %}
+		<head><meta http-equiv="refresh" content="0; url='{{ redirect_url }}'" /></head>
+	{% endif %}
 	{% include common.html %}
 
 	<body>
